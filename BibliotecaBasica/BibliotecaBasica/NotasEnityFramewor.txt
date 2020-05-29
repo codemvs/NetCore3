@@ -1,0 +1,3 @@
+﻿### Ejecutar Migración en "Consola del Administrador de paquetes"
+Add-Migration Initial // Crear migración
+Update-Database // Se utiliza para reflejar los cambios en la base de datos
