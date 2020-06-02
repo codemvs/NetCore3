@@ -30,11 +30,11 @@ namespace SeguridadAutentificacion.Controllers
             _configuration = configuration;
         }
         //POST: /api/cuentas/crear
-        //{
-	       // "email":"codemvs@gmail.com",
-	       // "password":"AiO123ska!"
-        //}
-    [HttpPost("Crear")]
+        /*{
+	        "email":"codemvs@gmail.com",
+	        "password":"AiO123ska!"
+        }*/
+        [HttpPost("Crear")]
         public async Task<ActionResult<UserToken>> CreateUser([FromBody] UserInfo model)
         {
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -49,7 +49,11 @@ namespace SeguridadAutentificacion.Controllers
             }
 
         }
-
+        //POST: /api/cuentas/login
+        /*{
+	        "email":"codemvs@gmail.com",
+	        "password":"AiO123ska!"
+        }*/
         [HttpPost("Login")]
         public async Task<ActionResult<UserToken>> Login([FromBody] UserInfo userInfo)
         {

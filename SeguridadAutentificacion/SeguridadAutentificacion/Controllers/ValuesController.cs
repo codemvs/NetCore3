@@ -1,19 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
+using SeguridadAutentificacion.Service;
+using System.Collections.Generic;
 
 namespace SeguridadAutentificacion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
     public class ValuesController : ControllerBase
     {
+        private readonly IDataProtector _dataProtector;
+        private readonly HashService _hashService;
+        public ValuesController(/*IDataProtectionProvider protectionProvider, HashService hashService*/)
+        {
+            //this._dataProtector = protectionProvider.CreateProtector("Valor_unico_secreto");
+            //this._hashService = hashService;
+        }
         // GET: api/Values
         [HttpGet]
         public IEnumerable<string> Get()
