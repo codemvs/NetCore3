@@ -26,6 +26,9 @@ namespace SeguridadAutentificacion
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configuracion encriptacion de datos
+            services.AddDataProtection();
+
             // Configuracion de CORS
             //services.AddCors(); // Aplica para todos los controladores
             services.AddCors(options => 
