@@ -72,6 +72,9 @@ namespace SeguridadAutentificacion
 
             app.UseAuthorization();
 
+            // Cors
+            app.UseCors(builder => builder.WithOrigins("https://www.apirequest.io").WithMethods("GET","POST").AllowAnyHeader());
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
