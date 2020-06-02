@@ -27,7 +27,10 @@ namespace SeguridadAutentificacion
         public void ConfigureServices(IServiceCollection services)
         {
             // Configuracion de CORS
-            services.AddCors();
+            //services.AddCors(); // Aplica para todos los controladores
+            services.AddCors(options => 
+                        options.AddPolicy("PermitirApiRequest",
+                                          builder=>builder.WithOrigins("https://www.apirequest.io").WithMethods("GET", "POST").AllowAnyHeader())); // Aplica para controladores o metodos especificos que se le asigne la plitica de seguridad
             // Configuration DB
             services.AddDbContext<ApplicationDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
@@ -72,9 +75,9 @@ namespace SeguridadAutentificacion
 
             app.UseAuthorization();
 
-            // Cors
-            app.UseCors(builder => builder.WithOrigins("https://www.apirequest.io").WithMethods("GET","POST").AllowAnyHeader());
-
+            // Cors a nivel midleware, aplica para todos los controladores
+            //app.UseCors(builder => builder.WithOrigins("https://www.apirequest.io").WithMethods("GET","POST").AllowAnyHeader());
+            app.UseCors(); //Cors nivel politica seguridad, Aplica para controladores o metodos especificos que se le asigne la plitica de seguridad
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

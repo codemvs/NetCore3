@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Mvc;
 using SeguridadAutentificacion.Service;
@@ -10,6 +11,7 @@ namespace SeguridadAutentificacion.Controllers
     [Route("api/[controller]")]
     [ApiController]
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "admin")]
+    [EnableCors("PermitirApiRequest")] // abarcando todos los metodos del controlador
     public class ValuesController : ControllerBase
     {
         private readonly IDataProtector _dataProtector;
@@ -20,6 +22,7 @@ namespace SeguridadAutentificacion.Controllers
             //this._hashService = hashService;
         }
         // GET: api/Values
+        //[EnableCors("PermitirApiRequest")] // abarca solo un meotodo especifico
         [HttpGet]
         public IEnumerable<string> Get()
         {
