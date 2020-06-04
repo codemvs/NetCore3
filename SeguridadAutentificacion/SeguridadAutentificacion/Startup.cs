@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using SeguridadAutentificacion.Context;
 using SeguridadAutentificacion.Models;
+using SeguridadAutentificacion.Service;
 using System;
 using System.Text;
 
@@ -26,6 +27,8 @@ namespace SeguridadAutentificacion
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Configuracion de Hash
+            services.AddScoped<HashService>();
             // Configuracion encriptacion de datos
             services.AddDataProtection();
 

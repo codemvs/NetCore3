@@ -16,13 +16,13 @@ namespace SeguridadAutentificacion.Controllers
     {
         private readonly IDataProtector _protector;
         private readonly HashService _hashService;
-        public ValuesController(IDataProtectionProvider protectionProvider/*, HashService hashService*/)
+        public ValuesController(IDataProtectionProvider protectionProvider, HashService hashService)
         {
             // Parte de la llave del algoritmo de encriptacion a utilizar, debe ser unico y de vez en cuando secreto
             string STRING_DE_PROPOSITO = "valor_unico_secreto"; 
 
             this._protector = protectionProvider.CreateProtector(STRING_DE_PROPOSITO);
-            //this._hashService = hashService;
+            this._hashService = hashService;
         }
         // GET: api/Values
         //[EnableCors("PermitirApiRequest")] // abarca solo un meotodo especifico
@@ -31,7 +31,21 @@ namespace SeguridadAutentificacion.Controllers
         {
             return new string[] { "value1", "value2" };
         }
+        // GET: api/values/hash
+        [HttpGet("hash")]
+        public ActionResult GetHash()
+        {
+            // Ejemplo hash 
+            string textoPlano = "Hola soy un texto plano";
+            var hashResult1 = _hashService.Hash(textoPlano).Has;
+            var hashResult2 = _hashService.Hash(textoPlano).Has;
 
+            return Ok(new {
+                textoPlano,
+                hashResult1,
+                hashResult2
+            });
+        }
         // GET: api/Values/5
         [HttpGet("{id}", Name = "Get")]
         public ActionResult<string> Get(int id)
