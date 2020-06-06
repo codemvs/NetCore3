@@ -5,6 +5,7 @@ using BibliotecaBasica.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,13 +25,23 @@ namespace BibliotecaBasica.Controllers
             this.mapper = mapper;
         }
         // GET: /api/autores
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<AutorDTO>>> Get() {
+        [HttpGet(Name = "ObtenerAutores")]
+        public async Task<IActionResult> Get(bool incluirEnlacesHATEOAS = false) {
 
             var autores = await context.Autores.ToListAsync();
             
             var autoresDTO = mapper.Map<List<AutorDTO>>(autores);
-            return autoresDTO;
+
+            var resultado = new ColeccionDeRecursos<AutorDTO>(autoresDTO);
+
+            if (incluirEnlacesHATEOAS)
+            {
+                autoresDTO.ForEach(a => GenerarEnlaces(a));
+                resultado.Enlaces.Add(new Enlace(href:Url.Link("ObtenerAutores",new { }), rel: "self", metodo: "GET"));
+                resultado.Enlaces.Add(new Enlace(href: Url.Link("CrearAutor", new { }), rel: "CreateAuthor", metodo: "POST"));
+                return Ok(resultado);
+            }
+            return Ok(autoresDTO);
         }
         // GET: /api/autores/2
         [HttpGet("{id}", Name = "ObtenerAutor")]
@@ -45,11 +56,22 @@ namespace BibliotecaBasica.Controllers
             }
 
             var autorDTO = mapper.Map<AutorDTO>(autor);
-
+            GenerarEnlaces(autorDTO);
             return autorDTO;
         }
+
+        /**
+         * Metodo se utiliza para generar enlaces del endpoint que reciben un parametro de entrada
+         */
+        private void GenerarEnlaces(AutorDTO autor)
+        {
+            autor.Enlaces.Add(new Enlace(href:Url.Link("ObtenerAutor",new {id = autor.Id }),rel:"self",metodo:"GET"));
+            autor.Enlaces.Add(new Enlace(href: Url.Link("ActualizarAutor", new { id = autor.Id }), rel: "update-autor", metodo: "PUT"));
+            autor.Enlaces.Add(new Enlace(href: Url.Link("BorrarAutor", new { id = autor.Id }), rel: "delete-autor", metodo: "DELETE"));
+        }
+
         // Post: /api/autores        
-        [HttpPost]
+        [HttpPost(Name ="CrearAutor")]
         public async Task<ActionResult> Post([FromBody] AutorCreacionDTO autorCreacion)
         {
             var autor = mapper.Map<Autor>(autorCreacion);
@@ -62,7 +84,7 @@ namespace BibliotecaBasica.Controllers
         }
 
         // Put: /api/autores/1
-        [HttpPut("{id}")]
+        [HttpPut("{id}", Name = "ActualizarAutor")]
         public async Task<ActionResult> Put(int id, [FromBody] AutorCreacionDTO autorActualizacion)
         {
             var autor = mapper.Map<Autor>(autorActualizacion);
@@ -82,7 +104,7 @@ namespace BibliotecaBasica.Controllers
             }]
          */
         // Patch: /api/autores/1
-        [HttpPatch("{id}")]
+        [HttpPatch("{id}", Name = "ActualizarParcialmenteAutor")]
         public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<AutorCreacionDTO> patchDocument) {
             if (patchDocument == null)
             {
@@ -115,7 +137,7 @@ namespace BibliotecaBasica.Controllers
         }
 
         // Delete: /api/autores/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "BorrarAutor")]
         public async Task<ActionResult> Delete(int id)
         {
             var autorId =await context.Autores.Select(autor => autor.Id).FirstOrDefaultAsync(autorId => autorId == id);
