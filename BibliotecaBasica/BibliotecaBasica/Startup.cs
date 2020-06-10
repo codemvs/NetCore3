@@ -1,9 +1,11 @@
 using AutoMapper;
 using BibliotecaBasica.Context;
 using BibliotecaBasica.Entities;
+using BibliotecaBasica.Helpers;
 using BibliotecaBasica.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,6 +42,11 @@ namespace BibliotecaBasica
                     // Configuración para ingnorar referencia ciclica
                     option => option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
+            // Configuracion para poder obtener IUrlHelper en GenerarEnlaces de una clase que no hereda ControllerBase
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            // Registrar servicios HATEOAS
+            services.AddScoped<HATEOASAuthorFilterAttribute>();
+            services.AddScoped<GeneradorEnlaces>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BibliotecaBasica.Context;
 using BibliotecaBasica.Entities;
+using BibliotecaBasica.Helpers;
 using BibliotecaBasica.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,9 @@ namespace BibliotecaBasica.Controllers
         }
         // GET: /api/autores
         [HttpGet(Name = "ObtenerAutores")]
-        public async Task<IActionResult> Get(bool incluirEnlacesHATEOAS = false) {
+        // Headers: IncluirHATEOAS=Y|N
+        [ServiceFilter(typeof(HATEOASAuthorFilterAttribute))] // Configuracion HATEOAS
+        public async Task<IActionResult> Get(/*bool incluirEnlacesHATEOAS = false*/) {
 
             var autores = await context.Autores.ToListAsync();
             
@@ -34,17 +37,19 @@ namespace BibliotecaBasica.Controllers
 
             var resultado = new ColeccionDeRecursos<AutorDTO>(autoresDTO);
 
-            if (incluirEnlacesHATEOAS)
-            {
-                autoresDTO.ForEach(a => GenerarEnlaces(a));
-                resultado.Enlaces.Add(new Enlace(href:Url.Link("ObtenerAutores",new { }), rel: "self", metodo: "GET"));
-                resultado.Enlaces.Add(new Enlace(href: Url.Link("CrearAutor", new { }), rel: "CreateAuthor", metodo: "POST"));
-                return Ok(resultado);
-            }
+            //if (incluirEnlacesHATEOAS)
+            //{
+            //    autoresDTO.ForEach(a => GenerarEnlaces(a));
+            //    resultado.Enlaces.Add(new Enlace(href:Url.Link("ObtenerAutores",new { }), rel: "self", metodo: "GET"));
+            //    resultado.Enlaces.Add(new Enlace(href: Url.Link("CrearAutor", new { }), rel: "CreateAuthor", metodo: "POST"));
+            //    return Ok(resultado);
+            //}
             return Ok(autoresDTO);
         }
         // GET: /api/autores/2
         [HttpGet("{id}", Name = "ObtenerAutor")]
+        // Headers: IncluirHATEOAS=Y|N
+        [ServiceFilter(typeof(HATEOASAuthorFilterAttribute))] // Configuracion HATEOAS
         public async Task<ActionResult<AutorDTO>> Get(int id)
         {
             var autor = await context
@@ -56,7 +61,7 @@ namespace BibliotecaBasica.Controllers
             }
 
             var autorDTO = mapper.Map<AutorDTO>(autor);
-            GenerarEnlaces(autorDTO);
+            //GenerarEnlaces(autorDTO);
             return autorDTO;
         }
 
