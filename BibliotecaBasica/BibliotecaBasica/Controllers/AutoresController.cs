@@ -28,7 +28,7 @@ namespace BibliotecaBasica.Controllers
         // GET: /api/autores
         [HttpGet(Name = "ObtenerAutores")]
         // Headers: IncluirHATEOAS=Y|N
-        [ServiceFilter(typeof(HATEOASAuthorFilterAttribute))] // Configuracion HATEOAS
+        [ServiceFilter(typeof(HATEOASAuthorsFilterAttribute))] // Configuracion HATEOAS
         public async Task<IActionResult> Get(/*bool incluirEnlacesHATEOAS = false*/) {
 
             var autores = await context.Autores.ToListAsync();

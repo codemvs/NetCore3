@@ -45,7 +45,8 @@ namespace BibliotecaBasica
             // Configuracion para poder obtener IUrlHelper en GenerarEnlaces de una clase que no hereda ControllerBase
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             // Registrar servicios HATEOAS
-            services.AddScoped<HATEOASAuthorFilterAttribute>();
+            services.AddScoped<HATEOASAuthorFilterAttribute>(); // Configuracion HATEOAS Autor
+            services.AddScoped<HATEOASAuthorsFilterAttribute>(); // Configuracion HATEOAS Autores
             services.AddScoped<GeneradorEnlaces>();
         }
 
