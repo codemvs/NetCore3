@@ -125,4 +125,9 @@ C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\Bibl
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.pdb
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.MvcApplicationPartsAssemblyInfo.cs
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.MvcApplicationPartsAssemblyInfo.cache

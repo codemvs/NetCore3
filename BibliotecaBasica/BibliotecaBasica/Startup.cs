@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace BibliotecaBasica
 {
@@ -48,11 +49,24 @@ namespace BibliotecaBasica
             services.AddScoped<HATEOASAuthorFilterAttribute>(); // Configuracion HATEOAS Autor
             services.AddScoped<HATEOASAuthorsFilterAttribute>(); // Configuracion HATEOAS Autores
             services.AddScoped<GeneradorEnlaces>();
+
+            // Configuracion swagger [Swashbuckle.AspNetCore]
+            services.AddSwaggerGen(config => {
+                config.SwaggerDoc("v1", new OpenApiInfo { Version = "V1", Title = "Biblioteca Web Api" });
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {            
+        {
+            // Config swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(config =>{
+                //https://localhost:44306/swagger/index.html
+                config.SwaggerEndpoint("/swagger/v1/swagger.json", "Biblioteca Api V1");
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
