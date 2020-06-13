@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BibliotecaBasica</name>
+    </assembly>
+    <members>
+        <member name="M:BibliotecaBasica.Controllers.AutoresController.GenerarEnlaces(BibliotecaBasica.Models.AutorDTO)">
+            Metodo se utiliza para generar enlaces del endpoint que reciben un parametro de entrada
+        </member>
+        <member name="M:BibliotecaBasica.Controllers.AutoresController.Patch(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BibliotecaBasica.Models.AutorCreacionDTO})">
+                     *patchDocument = [{
+            	            "op":"replace", // operación
+            	            "path":"/nombre", // atributo a modificar
+            	            "value":"Patch" // Nuevo valor
+                        }]
+        </member>
+        <member name="M:BibliotecaBasica.Controllers.AutoresController.Delete(System.Int32)">
+            <sumary>
+            Borrar un elemento específico        
+            </sumary>
+            <param name="id">id del elemento a borrar</param>
+        </member>
+        <member name="T:BibliotecaBasica.Models.AutorDTO">
+            De este modelo se hereda Recuros para poder configurar los HATEOAS en el controller
+        </member>
+    </members>
+</doc>

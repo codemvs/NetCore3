@@ -131,3 +131,5 @@ C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Swas
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.MvcApplicationPartsAssemblyInfo.cs
 C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.MvcApplicationPartsAssemblyInfo.cache
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\bin\Debug\netcoreapp3.1\BibliotecaBasica.xml
+C:\cursos\NetCore\BibliotecaBasica\BibliotecaBasica\obj\Debug\netcoreapp3.1\BibliotecaBasica.xml

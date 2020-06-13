@@ -28,7 +28,7 @@ namespace BibliotecaBasica.Controllers
         // GET: /api/autores
         [HttpGet(Name = "ObtenerAutores")]
         // Headers: IncluirHATEOAS=Y|N
-        [ServiceFilter(typeof(HATEOASAuthorsFilterAttribute))] // Configuracion HATEOAS
+        [ServiceFilter(typeof(HATEOASAuthorsFilterAttribute))] // Configuracion HATEOAS        
         public async Task<IActionResult> Get(/*bool incluirEnlacesHATEOAS = false*/) {
 
             var autores = await context.Autores.ToListAsync();
@@ -50,6 +50,10 @@ namespace BibliotecaBasica.Controllers
         [HttpGet("{id}", Name = "ObtenerAutor")]
         // Headers: IncluirHATEOAS=Y|N
         [ServiceFilter(typeof(HATEOASAuthorFilterAttribute))] // Configuracion HATEOAS
+        // mostrar explicitamente el tipo de respuesta para que se muestre en swagger
+        // Solo aplica para codigo .net anteriores, la actúal se configura por convencion en startup
+        //[ProducesResponseType(404)]
+        //[ProducesResponseType(typeof(AutorDTO),200)]
         public async Task<ActionResult<AutorDTO>> Get(int id)
         {
             var autor = await context
@@ -142,6 +146,11 @@ namespace BibliotecaBasica.Controllers
         }
 
         // Delete: /api/autores/1
+        //Ejemplo de comentario para mostrar en swagger
+        ///<sumary>
+        ///Borrar un elemento específico        
+        ///</sumary>
+        ///<param name="id">id del elemento a borrar</param>
         [HttpDelete("{id}", Name = "BorrarAutor")]
         public async Task<ActionResult> Delete(int id)
         {

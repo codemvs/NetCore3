@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+  
+  <!--Configuración para leer comentarios con swagger-->
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Migrations\20200515015251_MigrationInitial.cs" />

@@ -5,13 +5,17 @@ using BibliotecaBasica.Helpers;
 using BibliotecaBasica.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-
+using System;
+using System.IO;
+using System.Reflection;
+[assembly:ApiConventionType(typeof(DefaultApiConventions))] // Para mostrar los tipos de retorno del endpoint en swagger
 namespace BibliotecaBasica
 {
     public class Startup
@@ -52,7 +56,33 @@ namespace BibliotecaBasica
 
             // Configuracion swagger [Swashbuckle.AspNetCore]
             services.AddSwaggerGen(config => {
-                config.SwaggerDoc("v1", new OpenApiInfo { Version = "V1", Title = "Biblioteca Web Api" });
+               
+                config.SwaggerDoc("v1", new OpenApiInfo {
+                    Version = "V1",
+                    Title = "Biblioteca Web Api",
+                    Description = "Descripcion de mi web API",
+                    TermsOfService = new Uri("https://www.codemvs.com"),
+                    License = new OpenApiLicense() { 
+                        Name = "MIT",
+                        Url = new Uri("https://www.terminos.mit")
+                    },
+                    Contact = new OpenApiContact() { 
+                        Name = "Codemvs",
+                        Email = "codemvs@gmail.com",
+                        Url = new Uri("https://www.codemvs.com/blog")
+                    }
+                });
+
+                config.SwaggerDoc("v2", new OpenApiInfo() { 
+                    Version = "v2",
+                    Title = "Biblioteca API V2"
+                });
+
+                // Incluir comentarios xml endpoint a swagger
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                config.IncludeXmlComments(xmlPath);
+
             });
 
         }
@@ -65,6 +95,7 @@ namespace BibliotecaBasica
             app.UseSwaggerUI(config =>{
                 //https://localhost:44306/swagger/index.html
                 config.SwaggerEndpoint("/swagger/v1/swagger.json", "Biblioteca Api V1");
+                config.SwaggerEndpoint("/swagger/v2/swagger.json", "Biblioteca Api V2");
             });
 
             if (env.IsDevelopment())
