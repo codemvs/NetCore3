@@ -29,9 +29,15 @@ namespace BibliotecaBasica.Controllers
         [HttpGet(Name = "ObtenerAutores")]
         // Headers: IncluirHATEOAS=Y|N
         [ServiceFilter(typeof(HATEOASAuthorsFilterAttribute))] // Configuracion HATEOAS        
-        public async Task<IActionResult> Get(/*bool incluirEnlacesHATEOAS = false*/) {
+        public async Task<IActionResult> Get(int numeroPagina = 1, int cantidadDeRegistros=10) {
+            var query = context.Autores.AsQueryable();
+            int totalRegistros = query.Count();
 
-            var autores = await context.Autores.ToListAsync();
+            //int omitirRegistros = ;
+            var autores = await query
+                .Skip(cantidadDeRegistros * (numeroPagina - 1))
+                .Take(cantidadDeRegistros)
+                .ToListAsync();
             
             var autoresDTO = mapper.Map<List<AutorDTO>>(autores);
 
@@ -44,6 +50,10 @@ namespace BibliotecaBasica.Controllers
             //    resultado.Enlaces.Add(new Enlace(href: Url.Link("CrearAutor", new { }), rel: "CreateAuthor", metodo: "POST"));
             //    return Ok(resultado);
             //}
+            int cantidadPaginas = (int)Math.Ceiling((double)totalRegistros / cantidadDeRegistros);
+            Response.Headers["x-total-registros"]= totalRegistros.ToString();
+            Response.Headers["x-cantidad-paginas"] = cantidadPaginas.ToString();
+
             return Ok(autoresDTO);
         }
         // GET: /api/autores/2
