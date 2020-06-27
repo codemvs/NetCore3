@@ -1,0 +1,9 @@
+﻿** Entity Framework **
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools (Para los comandos, Add-Migration)
+** Add AutoMapper **
+AutoMapper.Extensions.Microsoft.DependencyInjection
+
+** Comandos creacion de migracion**
+PM> Add-Migration Initial	// Crea la migración de las tablas
+PM> Update-Database			// Se utiliza para enviar los cambios a la BD
