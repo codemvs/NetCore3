@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PeliculasAPI.Servicios;
 
 namespace PeliculasAPI
 {
@@ -22,6 +23,11 @@ namespace PeliculasAPI
         {
             // Config AutoMapper
             services.AddAutoMapper(typeof(Startup)); // En este proyecto se encapsulara en una clase las configuraciones de los mapeos
+
+            // Configuracion de menejo de archivos local
+            services.AddTransient<IAlmacenadorArchivos, AlmacenadorArchivosLocal>();
+            services.AddHttpContextAccessor();
+
             // Config db context
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -37,6 +43,8 @@ namespace PeliculasAPI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseStaticFiles(); // permite hacer publica los archivos de wwwroot
 
             app.UseRouting();
 
