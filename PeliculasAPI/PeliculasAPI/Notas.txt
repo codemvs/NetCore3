@@ -3,6 +3,10 @@ Microsoft.EntityFrameworkCore.SqlServer
 Microsoft.EntityFrameworkCore.Tools (Para los comandos, Add-Migration)
 ** Add AutoMapper **
 AutoMapper.Extensions.Microsoft.DependencyInjection
+** Add Configuracion Path **
+Microsoft.AspNetCore.JsonPatch
+** Habilitar ModalState **
+Microsoft.AspNetCore.Mvc.NewtonsoftJson
 
 ** Comandos creacion de migracion**
 PM> Add-Migration Initial	// Crea la migración de las tablas
