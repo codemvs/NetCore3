@@ -56,3 +56,5 @@ C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CopyComplete
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.pdb
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CoreCompileInputs.cache
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.genruntimeconfig.cache
