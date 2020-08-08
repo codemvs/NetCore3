@@ -32,7 +32,10 @@ namespace PeliculasAPI
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers()
-                    .AddNewtonsoftJson(); // NewtonSofJson
+                    .AddNewtonsoftJson(
+                        //Ignorar referencia ciclica
+                        option => option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                        ); // NewtonSofJson
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
