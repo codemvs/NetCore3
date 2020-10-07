@@ -57,3 +57,4 @@ C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\staticwebass
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.pdb
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.genruntimeconfig.cache
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csprojAssemblyReference.cache
