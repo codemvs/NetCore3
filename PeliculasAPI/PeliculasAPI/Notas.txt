@@ -7,6 +7,8 @@ AutoMapper.Extensions.Microsoft.DependencyInjection
 Microsoft.AspNetCore.JsonPatch
 ** Habilitar ModalState **
 Microsoft.AspNetCore.Mvc.NewtonsoftJson
+** Manejo de strings order by**
+System.Link.Dynamic.Core
 
 ** Comandos creacion de migracion**
 PM> Add-Migration Initial	// Crea la migración de las tablas
