@@ -1,6 +1,5 @@
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\appsettings.json
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\PeliculasAPI.exe
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\PeliculasAPI.deps.json
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\PeliculasAPI.runtimeconfig.json
@@ -36,6 +35,7 @@ C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\Newtonsoft.J
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
@@ -48,14 +48,13 @@ C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\runtimes\win
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.AssemblyInfoInputs.cache
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.AssemblyInfo.cs
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.RazorTargetAssemblyInfo.cache
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CopyComplete
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CoreCompileInputs.cache
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\staticwebassets\PeliculasAPI.StaticWebAssets.Manifest.cache
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\staticwebassets\PeliculasAPI.StaticWebAssets.xml
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\scopedcss\bundle\PeliculasAPI.styles.css
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.RazorTargetAssemblyInfo.cache
+C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CopyComplete
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.dll
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.pdb
 C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.genruntimeconfig.cache
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csprojAssemblyReference.cache
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.csproj.CoreCompileInputs.cache
-C:\cursos\NetCore\PeliculasAPI\PeliculasAPI\obj\Debug\netcoreapp3.1\PeliculasAPI.MvcApplicationPartsAssemblyInfo.cache

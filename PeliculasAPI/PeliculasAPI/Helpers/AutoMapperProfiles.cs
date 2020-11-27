@@ -14,6 +14,11 @@ namespace PeliculasAPI.Helpers
             // GeneroCreacionDTO -> Genero
             CreateMap<GeneroCreacionDTO, Genero>();
 
+            // SalaDeCine < - > SalaDeCineDTO
+            CreateMap<SalaDeCine, SalaDeCineDTO>().ReverseMap();
+            // SalaDeCineCreacionDTO -> SalaDeCine
+            CreateMap<SalaDeCineCreacionDTO, SalaDeCine>();
+
             // Actor < - > ActorDTO
             CreateMap<Actor, ActorDTO>().ReverseMap();
             //ActorCreacionDTO - > Actor
